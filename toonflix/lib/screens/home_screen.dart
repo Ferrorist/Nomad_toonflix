@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
 
   ListView makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
     // 유저의 화면에 보이지 않는
-    // 혹은 스크롤 등으로 인해 보이지 않게 될 경우,
+    // 혹은 스크롤(scroll) 등으로 인해 보이지 않게 될 경우,
     // 해당 아이템을 메모리에서 제거함.
     return ListView.separated(
       scrollDirection: Axis.horizontal,
@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
       // index로만 접근 가능
       itemBuilder: (context, index) {
         var webtoon = snapshot.data![index];
-        return Webtoon(webtoon: webtoon);
+        return WebtoonWidget(webtoon: webtoon);
       },
       // 아이템들 사이에 구분자를 넣어주는 builder
       separatorBuilder: (context, index) => const SizedBox(
